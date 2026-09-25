@@ -1,4 +1,66 @@
+import 'package:flutter/material.dart';
 import '../models/movie.dart';
+
+/// Mapping of actor names to public profile image URLs (Wikimedia Commons).
+/// If an actor has no stable URL, null is mapped so a styled initials placeholder is used.
+const Map<String, String?> actorImageUrls = {
+  // Inception
+  'Leonardo DiCaprio':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_DiCaprio_visited_Ghent_Preserved_cropped.jpg?width=300',
+  'Joseph Gordon-Levitt':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Joseph_Gordon-Levitt_2013.jpg?width=300',
+  'Elliot Page':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Elliot_Page_in_2019.jpg?width=300',
+  'Tom Hardy':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tom_Hardy_by_Gage_Skidmore.jpg?width=300',
+  'Ken Watanabe':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Ken_Watanabe_2014.jpg?width=300',
+
+  // Interstellar
+  'Matthew McConaughey':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Matthew_McConaughey_2019_(48976290201)_(cropped).jpg?width=300',
+  'Anne Hathaway':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Anne_Hathaway_at_the_2007_Deauville_American_Film_Festival-01A.jpg?width=300',
+  'Jessica Chastain':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Jessica_Chastain_-_Cannes_2014.jpg?width=300',
+  'Michael Caine':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Michael_Caine_-_2012.jpg?width=300',
+  'Matt Damon':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Matt_Damon_TIFF_2015.jpg?width=300',
+
+  // Tenet
+  'John David Washington':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/John_David_Washington_by_Gage_Skidmore.jpg?width=300',
+  'Robert Pattinson':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Robert_Pattinson_by_Gage_Skidmore.jpg?width=300',
+  'Elizabeth Debicki':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Elizabeth_Debicki_by_Gage_Skidmore.jpg?width=300',
+  'Kenneth Branagh':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kenneth_Branagh_2015.jpg?width=300',
+
+  // Resident Evil (2026)
+  'Austin Abrams':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Austin_Abrams_by_Gage_Skidmore.jpg?width=300',
+  'Zach Cherry': null, // Placeholder used
+  'Kali Reis':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kali_Reis_2024.jpg?width=300',
+  'Paul Walter Hauser':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Paul_Walter_Hauser_by_Gage_Skidmore.jpg?width=300',
+  'Zach Cregger (Dir.)':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Zach_Cregger_2010.jpg?width=300',
+
+  // Drive
+  'Ryan Gosling':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Ryan_Gosling_by_Gage_Skidmore.jpg?width=300',
+  'Carey Mulligan':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Carey_Mulligan_at_the_2018_Toronto_International_Film_Festival_(cropped).jpg?width=300',
+  'Bryan Cranston':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Bryan_Cranston_by_Gage_Skidmore.jpg?width=300',
+  'Albert Brooks':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Albert_Brooks_2011.jpg?width=300',
+  'Oscar Isaac':
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Oscar_Isaac_by_Gage_Skidmore.jpg?width=300',
+};
 
 /// Curated sample list of movies for the app matching the requested catalog:
 /// Inception, Interstellar, Tenet, Resident Evil (2026, Zach Cregger), Drive (Ryan Gosling).
@@ -19,6 +81,7 @@ final List<Movie> sampleMovies = [
     rating: 8.8,
     genres: ['Sci-Fi', 'Action', 'Thriller'],
     runtime: '2h 28m',
+    dominantColor: const Color(0xFF2B323A), // Spinning top slate-chrome tone
   ),
   Movie(
     title: 'Interstellar',
@@ -36,6 +99,7 @@ final List<Movie> sampleMovies = [
     rating: 8.7,
     genres: ['Sci-Fi', 'Adventure', 'Drama'],
     runtime: '2h 49m',
+    dominantColor: const Color(0xFF382A1B), // Cosmic amber/sepia tone
   ),
   Movie(
     title: 'Tenet',
@@ -53,6 +117,7 @@ final List<Movie> sampleMovies = [
     rating: 7.3,
     genres: ['Sci-Fi', 'Action', 'Thriller'],
     runtime: '2h 30m',
+    dominantColor: const Color(0xFF1A3B40), // Gunmetal cyan/teal tone
   ),
   Movie(
     title: 'Resident Evil',
@@ -70,6 +135,7 @@ final List<Movie> sampleMovies = [
     rating: 8.4,
     genres: ['Horror', 'Sci-Fi', 'Mystery'],
     runtime: '1h 58m',
+    dominantColor: const Color(0xFF4D1414), // Gothic crimson/blood tone
   ),
   Movie(
     title: 'Drive',
@@ -87,5 +153,6 @@ final List<Movie> sampleMovies = [
     rating: 7.8,
     genres: ['Action', 'Drama', 'Crime'],
     runtime: '1h 40m',
+    dominantColor: const Color(0xFF1D3E4A), // Midnight teal / neon noir tone
   ),
 ];
